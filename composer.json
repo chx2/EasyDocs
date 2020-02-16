@@ -1,0 +1,23 @@
+{
+    "name": "chx2/easydocs",
+    "description": "An easy way to generate user documentation",
+    "version": "0.0.1",
+    "keywords": ["documentation", "static generator"],
+    "authors": [
+        {
+            "name": "Chris H.",
+            "email": "crishack8@gmail.com"
+        }
+    ],
+    "require": {
+        "bramus/router": "^1.4",
+        "symfony/yaml": "^5.0",
+        "smarty/smarty": "^3.1",
+        "erusev/parsedown": "^1.7"
+    },
+    "autoload": {
+      "psr-4": {
+        "chx2\\": "app/classes"
+      }
+    }
+}
