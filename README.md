@@ -14,7 +14,7 @@ No database is required to run EasyDocs. A full-installation process will take l
 **With Composer**
 1. Run the following command to download the composer package:
 
-> composer create-project chx2/easydocs
+> composer create-project chx2/easydocs -s dev
 
 2. Edit the config.yaml file under the app/ directory to update your username & password. A default one is provided but is recommended that you change it:
 
