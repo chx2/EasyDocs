@@ -196,6 +196,18 @@ $router->get('/tool', function() use ($settings,$template,$logged) {
   }
 });
 
+$router->post('/tool', function() use ($settings,$template,$logged) {
+  if ($logged->isLoggedIn()) {
+    $tool = new chx2\Tool($settings);
+    $tool->run();
+    $yaml = Yaml::dump($tool->list);
+    file_put_contents(CONFIG_URI, $yaml);
+  }
+  else {
+    $logged->NotLoggedIn();
+  }
+});
+
 //View Documents
 $router->get('/(\w+)/(\w+)', function($slug,$name) use ($settings,$template,$logged) {
   if (isset($name)) {

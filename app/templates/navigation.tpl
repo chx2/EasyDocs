@@ -24,6 +24,9 @@
               <a href="tool?action=scan" class="navbar-item has-tooltip-left" data-tooltip="This will scan all current documents to help fix broken listings">
                 Rebuild document list
               </a>
+              <a class="navbar-item has-tooltip-left modal-toggle" data-tooltip="Click to select documents for export">
+                Export Documents
+              </a>
             {/if}
           </div>
         </div>

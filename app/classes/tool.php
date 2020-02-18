@@ -31,6 +31,38 @@ class Tool {
     header('Location: dashboard');
   }
 
+  //Export requested sections as a combined zip file
+  private function export() {
+    //Get requested sections and current sections
+    $data = array_map('htmlspecialchars', $_POST);
+    $files = $this->tree('docs');
+
+    //Create ZIP
+    $name = 'documentation.zip';
+    $zip = new \ZipArchive;
+    $zip->open($name, \ZipArchive::CREATE);
+
+    //Add Files to Zip
+    foreach ($data as $key => $value) {
+      if (isset($files[$key])) {
+        foreach($files[$key] as $file) {
+          $zip->addFile('docs/'. $key . '/' . $file . '.md');
+        }
+      }
+    }
+    $zip->close();
+
+    //Serve ZIP Folder
+    header('Content-type: application/zip');
+    header('Content-Disposition: attachment; filename="'.$name.'"');
+    header('Content-Length: ' . filesize($name));
+
+    //Remove ZIP
+    flush();
+    readfile($name);
+    unlink($name);
+  }
+
   //Repopulate document list
   private function scan() {
     $files = $this->tree('docs');

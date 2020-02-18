@@ -26,3 +26,14 @@
     {$styles}
   </head>
   <body>
+    <noscript>
+      <style>
+        body {
+          visibility: hidden;
+        }
+        .no-js {
+          visibility: visible;
+        }
+      </style>
+      <h1 class="no-js abs-center full-width">{$title} requires Javascript to function, please check your browser settings</h1>
+    </noscript>
