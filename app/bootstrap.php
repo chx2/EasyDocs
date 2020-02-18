@@ -196,6 +196,7 @@ $router->get('/tool', function() use ($settings,$template,$logged) {
   }
 });
 
+//Run a tool that requires many fields, handled through post data
 $router->post('/tool', function() use ($settings,$template,$logged) {
   if ($logged->isLoggedIn()) {
     $tool = new chx2\Tool($settings);
@@ -209,13 +210,13 @@ $router->post('/tool', function() use ($settings,$template,$logged) {
 });
 
 //View Documents
-$router->get('/(\w+)/(\w+)', function($slug,$name) use ($settings,$template,$logged) {
+$router->get('/([^/]+)/([^/]+)', function($slug,$name) use ($settings,$template,$logged) {
   if (isset($name)) {
     $document = new chx2\DocMaker($settings);
-    $document->section = htmlspecialchars(ucfirst($slug));
-    $document->docname = htmlspecialchars(ucfirst($name));
+    $document->section = preg_replace('/[\s\+]/', ' ', htmlspecialchars($slug));
+    $document->docname = preg_replace('/[\s\+]/', ' ', htmlspecialchars($name));
 
-    $menu = new chx2\Navigation($settings['pages'],$document->docname);
+    $menu = new chx2\Navigation($settings['pages'],$document->section,$document->docname);
     $menu->branch();
 
     $parsed = new Parsedown();

@@ -1,16 +1,19 @@
 {
     "name": "chx2/easydocs",
     "description": "An easy way to generate user documentation",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "keywords": ["documentation", "static generator"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Chris H.",
-            "email": "crishack8@gmail.com"
+            "email": "crishack8@gmail.com",
+            "role": "Developer"
         }
     ],
     "require": {
         "php": ">=7.1.0",
+        "ext-zip": "*",
         "bramus/router": "^1.4",
         "symfony/yaml": "^5.0",
         "smarty/smarty": "^3.1",

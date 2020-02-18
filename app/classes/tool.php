@@ -11,10 +11,12 @@ class Tool {
   protected $action;
 
   public $list;
+  public $data;
 
   public function __construct($list = array(),$action = null) {
     $this->action = (isset($_GET['action'])) ? htmlspecialchars($_GET['action']) : $action;
     $this->list = $list;
+    $this->data = $data = array_map('htmlspecialchars', $_POST) ?: null;
   }
 
   public function run() {
@@ -33,8 +35,7 @@ class Tool {
 
   //Export requested sections as a combined zip file
   private function export() {
-    //Get requested sections and current sections
-    $data = array_map('htmlspecialchars', $_POST);
+    //Get filelist
     $files = $this->tree('docs');
 
     //Create ZIP
@@ -43,7 +44,7 @@ class Tool {
     $zip->open($name, \ZipArchive::CREATE);
 
     //Add Files to Zip
-    foreach ($data as $key => $value) {
+    foreach ($this->data as $key => $value) {
       if (isset($files[$key])) {
         foreach($files[$key] as $file) {
           $zip->addFile('docs/'. $key . '/' . $file . '.md');
@@ -52,12 +53,12 @@ class Tool {
     }
     $zip->close();
 
-    //Serve ZIP Folder
+    //File Headers
     header('Content-type: application/zip');
     header('Content-Disposition: attachment; filename="'.$name.'"');
     header('Content-Length: ' . filesize($name));
 
-    //Remove ZIP
+    //Serve, Close, then remove ZIP archive
     flush();
     readfile($name);
     unlink($name);

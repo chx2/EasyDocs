@@ -16,6 +16,7 @@ $(document).ready(function() {
         $(this).parent().parent().fadeOut('normal', function() {
           $(this).remove();
         });
+        location.reload();
       }
       else {
         $(this).parent().fadeOut('normal', function() {

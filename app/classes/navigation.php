@@ -6,11 +6,13 @@ class Navigation {
   public $tree;
   public $navigation;
 
-  private $active;
+  private $section;
+  private $document;
 
-  public function __construct($tree,$active = '') {
+  public function __construct($tree,$section = '',$document = '') {
     $this->tree = $tree;
-    $this->active = $active;
+    $this->section = $section;
+    $this->document = $document;
   }
 
   public function branch() {
@@ -18,7 +20,7 @@ class Navigation {
       $this->navigation .= '<p class="menu-label">' . $key . '</p>';
       $this->navigation .= '<ul class="menu-list">';
       foreach($this->tree[$key] as $branch) {
-        if (strtolower($this->active) === strtolower($branch)) {
+        if (strtolower($this->section . $this->document) === strtolower($key . $branch)) {
           $this->navigation .= '<li><a class="is-active" href="'.BASE_URL .'/'. strtolower($key) .'/'. strtolower($branch).'">'.$branch.'</a><li>';
         }
         else {

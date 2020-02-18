@@ -1,4 +1,4 @@
-{assign var="subtitle" value="`$docname` | `$section`"}
+{assign var="subtitle" value="`$docname|ucfirst` | `$section|ucfirst`"}
 {assign var="document" value="true"}
 {include file='header.tpl'}
   {include file='navigation.tpl'}

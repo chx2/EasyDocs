@@ -62,3 +62,8 @@ h3 {
     width: auto!important;
   }
 }
+@media (min-width: 1088px) {
+  .navbar-item.is-hoverable:hover .navbar-dropdown {
+    display: block;
+  }
+}

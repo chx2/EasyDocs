@@ -109,7 +109,12 @@
           <ul>
             {foreach from=$sections item=value key=key}
               <li>
-                <p class="is-pulled-left">{$key}</p>
+                <p class="is-pulled-left">
+                  <span class="icon">
+                    <i class="fas fa-folder"></i>
+                  </span>
+                  {$key}
+                </p>
                 <div class="ckbx-style-13 is-pulled-right">
                   <input type="checkbox" id="checkbox-{$key}" name="{$key}">
                   <label for="checkbox-{$key}"></label>

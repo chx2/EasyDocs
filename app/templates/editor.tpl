@@ -1,4 +1,4 @@
-{assign var="subtitle" value="`$docname` | `$section`"}
+{assign var="subtitle" value="`$docname|ucfirst` | `$section|ucfirst`"}
 {include file='header.tpl'}
   {include file='navigation.tpl'}
   {if !empty($error)}
@@ -15,7 +15,7 @@
   {/if}
   <form action="edit" method="post">
     <section class="container">
-      <h1 class="has-text-centered">Editing: <a href="{$base_url}/{$section|lower}/{$docname|lower}" target="_blank">{$docname}</a></h1>
+      <h1 class="has-text-centered">Editing: <a href="{$base_url}/{$section|urlencode}/{$docname|urlencode}" target="_blank">{$docname}</a></h1>
       <div class="columns">
         <div class="column section">
           <h2 class="has-text-centered">Document Name</h2>
