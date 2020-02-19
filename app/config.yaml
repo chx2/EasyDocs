@@ -1,6 +1,6 @@
 settings:
-    title: Docmaker
-    description: 'Welcome to Docmaker! Use this tool to generate the documentation you need to your hearts content!'
+    title: EasyDocs
+    description: 'Welcome to EasyDocs! Use this tool to generate the documentation you need to your hearts content!'
     langauge: en
     encoding: utf-8
     users: { admin: '1234' }

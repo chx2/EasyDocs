@@ -24,7 +24,7 @@ Say you want a new one with the name 'superuser' and a password of '1029', you w
 
 > superuser: '1029'
 
-3. Enter the URL of the webserver to login. Once you have created your first section inside the ACP, you can begin to write your documentation!
+3. Enter the URL of the webserver to login. Once you have created your first section inside the ACP (Accessible by appending /login to url), you can begin to write your documentation!
 
 ## Modifications
 It is possible to modify the layout and/or functionality of EasyDocs if you wish.

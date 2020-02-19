@@ -227,7 +227,17 @@ $router->get('/([^/]+)/([^/]+)', function($slug,$name) use ($settings,$template,
       $template->assign('content',$parsed->text($document->content));
       $template->display('document.tpl');
     }
+    else {
+      header('HTTP/1.1 404 Not Found');
+      $template->display('404.tpl');
+    }
   }
+});
+
+// Custom 404 Handler
+$router->set404(function() use ($settings,$template) {
+	header('HTTP/1.1 404 Not Found');
+	$template->display('404.tpl');
 });
 
 //Execute request
