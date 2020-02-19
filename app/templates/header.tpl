@@ -3,6 +3,7 @@
   <head>
     <meta charset="{$encoding}">
     <meta name="generator" content="EasyDocs">
+    <meta name="theme-color" content="#00d1b2">
     <title>{$subtitle} | {$title}</title>
     <meta name="description" content="{$description}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -13,9 +13,6 @@ $(document).ready(function() {
       };
       $.post('process', data);
       if ($(this).data('name') == 'no-name') {
-        $(this).parent().parent().fadeOut('normal', function() {
-          $(this).remove();
-        });
         location.reload();
       }
       else {

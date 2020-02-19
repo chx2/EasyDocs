@@ -117,7 +117,6 @@ $router->get('/login', function() use ($settings,$template,$logged) {
 
 //Try to login
 $router->post('/login', function() use ($settings,$template,$logged) {
-  $logged->setup();
   $logged->login();
 });
 

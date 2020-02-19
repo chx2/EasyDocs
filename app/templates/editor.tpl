@@ -57,7 +57,7 @@
       <input type="hidden" name="old-name" value="{$docname}">
       <div class="field">
         <p class="control">
-          <button type="submit" class="button is-success full-width">
+          <button type="submit" class="button is-primary full-width">
             Update
           </button>
         </p>

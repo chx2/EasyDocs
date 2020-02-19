@@ -98,11 +98,17 @@ class DocMaker {
 
   //Update document
   public function putContent() {
-    unlink(DOC_URI . $this->old_section . '/' . $this->old_name . '.md');
-    unset($this->list['pages'][$this->old_section][array_search($this->old_name, $this->list['pages'][$this->old_section])]);
-    array_push($this->list['pages'][$this->section], $this->docname);
-    file_put_contents(DOC_URI . $this->section . '/' . $this->docname . '.md', $this->content);
-    $_SESSION['success'] = $this->docname . ' has been updated!';
+    if (file_exists(DOC_URI . $this->section . '/' . $this->docname . '.md') && $this->section !== $this->old_section) {
+      $_SESSION['error'] = 'Error, document already exists';
+      header('Location: dashboard');
+    }
+    else {
+      unlink(DOC_URI . $this->old_section . '/' . $this->old_name . '.md');
+      unset($this->list['pages'][$this->old_section][array_search($this->old_name, $this->list['pages'][$this->old_section])]);
+      array_push($this->list['pages'][$this->section], $this->docname);
+      file_put_contents(DOC_URI . $this->section . '/' . $this->docname . '.md', $this->content);
+      $_SESSION['success'] = $this->docname . ' has been updated!';
+    }
   }
 
   //Handling just document

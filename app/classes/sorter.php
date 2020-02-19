@@ -25,11 +25,6 @@ class Sorter {
     $this->list['pages'][$this->key] = $this->sorted[$this->key];
   }
 
-  //Bundle documents
-  public function bundle() {
-
-  }
-
   //Escape document arraypost
   private function escapeWalk() {
     foreach ($_POST as $item) {

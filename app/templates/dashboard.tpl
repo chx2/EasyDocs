@@ -23,7 +23,7 @@
         {if !empty($sections)}
           <section class="accordions">
             {foreach from=$sections key=key item=item}
-              <article class="accordion is-success">
+              <article class="accordion is-primary">
                 <div class="accordion-header toggle">
                   <p class="has-text-centered">{$key}</p>
                   <button class="remove delete" data-section="{$key}" data-name="no-name"></button>
@@ -68,7 +68,7 @@
           {/if}
           <div class="field">
             <p class="control">
-              <button class="button is-success full-width" {if empty($sections)}disabled{/if}>
+              <button class="button is-primary full-width" {if empty($sections)}disabled{/if}>
                 Create
               </button>
             </p>
@@ -88,7 +88,7 @@
           </div>
           <div class="field">
             <p class="control">
-              <button class="button is-success full-width">
+              <button class="button is-primary full-width">
                 Create
               </button>
             </p>
@@ -124,7 +124,7 @@
           </ul>
         </section>
         <footer class="modal-card-foot">
-          <button type="submit" class="button is-success full-width">Export</button>
+          <button type="submit" class="button is-primary full-width">Export</button>
         </footer>
       </form>
     </div>

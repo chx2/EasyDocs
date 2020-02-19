@@ -8,30 +8,22 @@ namespace chx2;
 */
 class Authentication {
 
-  protected $input_user;
-  protected $input_pass;
+  protected $input;
   protected $valid_user;
   protected $valid_pass;
 
   public function __construct($input) {
 
-    $this->input_user = $input['settings']['username'];
-    $this->input_pass = $input['settings']['password'];
+    $this->input = $input['settings']['users'];
 
-  }
-
-  public function setup() {
-
-    if (isset($_POST)) {
-      $data = array_map('htmlspecialchars',$_POST);
-      $this->valid_user = (isset($data['username']) ? $data['username'] : '');
-      $this->valid_pass = (isset($data['password']) ? $data['password'] : '');
-    }
+    $data = array_map('htmlspecialchars',$_POST);
+    $this->valid_user = (isset($data['username']) ? $data['username'] : '');
+    $this->valid_pass = (isset($data['password']) ? $data['password'] : '');
 
   }
 
   public function login() {
-    if ($this->input_user === $this->valid_user && $this->input_pass === $this->valid_pass) {
+    if (isset($this->input[$this->valid_user]) && $this->valid_pass === $this->input[$this->valid_user]) {
       $_SESSION['logged_in'] = true;
       header('Location: dashboard');
     }

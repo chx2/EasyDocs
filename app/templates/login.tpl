@@ -34,7 +34,7 @@
             </p>
           </div>
         </form><br>
-        <p class="has-text-centered"><a href="{$base_url}">Return to Documentation</a></p>
+        <button class="button is-primary has-text-centered full-width"><a class="has-text-white" href="{$base_url}">Return to Documentation</a></button>
       </div>
     </div>
   </section>

@@ -16,10 +16,13 @@ No database is required to run EasyDocs. A full-installation process will take l
 
 > composer create-project chx2/easydocs -s dev
 
-2. Edit the config.yaml file under the app/ directory to update your username & password. A default one is provided but is recommended that you change it:
+2. Edit the config.yaml file under the app/ directory to update your username & password plus add any additional users. A default one is provided but is recommended that you change it. You can edit current users & add new ones under the YAML block called users:
 
-> username: admin
-> password: '1234'
+> admin: '1234'
+
+Say you want a new one with the name 'superuser' and a password of '1029', you would add this line to the users block:
+
+> superuser: '1029'
 
 3. Enter the URL of the webserver to login. Once you have created your first section inside the ACP, you can begin to write your documentation!
 
@@ -48,10 +51,21 @@ While the intended purpose of EasyDocs is to provide an editor to help you creat
 
 ## Credits
 There are several plugins that are utilized within EasyDocs for simplified usage:
+
+### Back-End
 - [Bramus Router](https://github.com/bramus/router)
 - [Smarty Templating Engine](https://github.com/smarty-php/smarty)
 - [Symfony Yaml Parser](https://github.com/symfony/yaml)
 - [Markup Parser](https://github.com/erusev/parsedown)
+
+### Front-End
+- [Bulma Framework](https://bulma.io/)
+- [hunzaboy CSS Checkboxes](https://github.com/hunzaboy/CSS-Checkbox-Library)
+- [jQuery](https://jquery.com/)
+- [jQuery UI](https://jqueryui.com/)
+- [Inscryb Markdown Editor(Fork based on original by Sparksuite)](https://github.com/inscryb/inscryb-markdown-editor)
+- [Font Awesome Icons](https://fontawesome.com)
+
 
 ## Bug reporting
 Feel free to leave a issue if something is not working with EasyDocs by default
