@@ -22,7 +22,16 @@ class Sorter {
 
   //Resort documents
   public function sort() {
-    $this->list['pages'][$this->key] = $this->sorted[$this->key];
+    if (isset($this->sorted['sortable'])) {
+      $sections = array();
+      foreach($this->sorted['sortable'] as $key => $value) {
+        $sections[$value] = $this->list['pages'][$value];
+      }
+      $this->list['pages'] = $sections;
+    }
+    else {
+      $this->list['pages'][$this->key] = $this->sorted[$this->key];
+    }
   }
 
   //Escape document arraypost

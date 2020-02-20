@@ -16,13 +16,12 @@ class Authentication {
 
     $this->input = $input['settings']['users'];
 
-    $data = array_map('htmlspecialchars',$_POST);
-    $this->valid_user = (isset($data['username']) ? $data['username'] : '');
-    $this->valid_pass = (isset($data['password']) ? $data['password'] : '');
-
   }
 
   public function login() {
+    $data = array_map('htmlspecialchars',$_POST);
+    $this->valid_user = (isset($data['username']) ? $data['username'] : '');
+    $this->valid_pass = (isset($data['password']) ? $data['password'] : '');
     if (isset($this->input[$this->valid_user]) && $this->valid_pass === $this->input[$this->valid_user]) {
       $_SESSION['logged_in'] = true;
       header('Location: dashboard');

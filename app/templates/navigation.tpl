@@ -1,4 +1,5 @@
 <nav class="navbar box no-pad" aria-label="main navigation">
+
   <div class="navbar-brand">
     <a class="navbar-item" href="{(isset($document)) ? {$base_url} : dashboard}">
       <img src="{$base_url}/assets/img/logo.png" alt="Docs Logo">
@@ -9,8 +10,10 @@
       <span aria-hidden="true"></span>
     </a>
   </div>
+
   <div id="navbar" class="navbar-menu">
     {if !isset($document)}
+
       <div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
@@ -38,10 +41,14 @@
           </div>
         </div>
       </div>
+
     {else}
-    <nav class="menu box is-hidden-desktop is-hidden-tablet">
-      {$navigation}
-    </nav>
+
+      <nav class="menu box is-hidden-desktop is-hidden-tablet">
+        {$navigation}
+      </nav>
+
     {/if}
   </div>
+
 </nav>

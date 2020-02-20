@@ -1,6 +1,7 @@
 {assign var="subtitle" value="Dashboard"}
 {include file='header.tpl'}
   {include file='navigation.tpl'}
+
   <section class="container">
     {if !empty($error)}
     <br>
@@ -15,6 +16,7 @@
       </div>
     {/if}
   </section>
+
   <div class="columns">
     <div class="column">
       <div class="card section">
@@ -42,9 +44,16 @@
               </article>
             {/foreach}
           </section>
+          <hr>
+        {else}
+        <h3 class="has-text-centered">No documents found</h3>
+        {/if}
+        {if count($sections) >= 2}
+          <button class="button section-order is-primary full-width">Change Section Order</button>
         {/if}
       </div>
     </div>
+
     <div class="column">
       <div class="card section">
         <h2 class="has-text-centered">Create a new document</h2>
@@ -66,6 +75,7 @@
             </div>
           </div>
           {/if}
+          <hr>
           <div class="field">
             <p class="control">
               <button class="button is-primary full-width" {if empty($sections)}disabled{/if}>
@@ -76,6 +86,7 @@
         </form>
       </div>
     </div>
+
     <div class="column">
       <div class="card section">
         <h2 class="has-text-centered">Create a new section</h2>
@@ -86,6 +97,7 @@
               <input class="input" type="text" placeholder="Enter new section name..." name="section">
             </p>
           </div>
+          <hr>
           <div class="field">
             <p class="control">
               <button class="button is-primary full-width">
@@ -97,36 +109,5 @@
       </div>
     </div>
   </div>
-  <div class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <form class="export-form" action="tool?action=export" method="post">
-        <header class="modal-card-head">
-          <p class="modal-card-title">Export Documents</p>
-          <button class="delete close" aria-label="close"></button>
-        </header>
-        <section class="modal-card-body">
-          <ul>
-            {foreach from=$sections item=value key=key}
-              <li>
-                <p class="is-pulled-left">
-                  <span class="icon">
-                    <i class="fas fa-folder"></i>
-                  </span>
-                  {$key}
-                </p>
-                <div class="ckbx-style-13 is-pulled-right">
-                  <input type="checkbox" id="checkbox-{$key}" name="{$key}">
-                  <label for="checkbox-{$key}"></label>
-                </div>
-              </li><br><br>
-            {/foreach}
-          </ul>
-        </section>
-        <footer class="modal-card-foot">
-          <button type="submit" class="button is-primary full-width">Export</button>
-        </footer>
-      </form>
-    </div>
-  </div>
+
 {include file='footer.tpl'}

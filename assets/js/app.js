@@ -30,7 +30,13 @@ $(document).ready(function() {
       e.currentTarget.submit();
     }
     else{
-      alert('Please check at least one section for exporting');
+      bulmaToast.toast({
+        message: "Please select a section to export",
+        type: "is-danger",
+        position: "top-center",
+        dismissible: true,
+        animate: { in: 'fadeIn', out: 'fadeOut' }
+      });
     }
   });
 
@@ -59,10 +65,12 @@ $(document).ready(function() {
   $('.modal-background').click(function(e) {
     e.preventDefault();
     $(document).find('.modal').first().fadeOut()
+    $(document).find('.modal').first().next().fadeOut()
   });
   $('.close').click(function(e) {
     e.preventDefault();
     $(document).find('.modal').first().fadeOut()
+    $(document).find('.modal').first().next().fadeOut()
   });
 
   //Page notification
@@ -71,6 +79,12 @@ $(document).ready(function() {
   //Prevent special characters from being used in file/folder names
   $('input').on('input', function() {
     $(this).val($(this).val().replace(/[^a-zA-Z0-9 -]/g, ''));
+  });
+
+  //Section
+  $('.section-order').click(function(e) {
+    e.preventDefault();
+    $(document).find('.modal').first().next().fadeIn()
   });
 
   //Sorting
@@ -86,6 +100,13 @@ $(document).ready(function() {
       },
       update: function (event, ui) {
         var data = $(this).sortable('serialize');
+        bulmaToast.toast({
+          message: "Order has been updated",
+          type: "is-success",
+          position: "top-center",
+          dismissible: true,
+          animate: { in: 'fadeIn', out: 'fadeOut' }
+        });
         $.post('order', data);
         $(this).css('cursor', 'pointer');
       }

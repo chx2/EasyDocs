@@ -2,21 +2,27 @@
 {include file='header.tpl'}
   {include file='navigation.tpl'}
   {if !empty($error)}
-  <br>
+
+    <br>
     <div class="notification is-danger full-width">
       {$error}
     </div>
+
   {/if}
   {if !empty($success)}
-  <br>
+
+    <br>
     <div class="notification is-success full-width">
       {$success}
     </div>
+
   {/if}
+
   <form action="edit" method="post">
     <section class="container">
       <h1 class="has-text-centered">Editing: <a href="{$base_url}/{$section|urlencode}/{$docname|urlencode}" target="_blank">{$docname}</a></h1>
       <div class="columns">
+
         <div class="column section">
           <h2 class="has-text-centered">Document Name</h2>
           <hr>
@@ -26,6 +32,7 @@
             </p>
           </div>
         </div>
+
         <div class="column section">
           <h2 class="has-text-centered">Section</h2>
           <hr>
@@ -50,11 +57,15 @@
             </p>
           </div>
         </div>
+
       </div>
+
       <hr>
       <textarea name="content">{$content}</textarea>
       <input type="hidden" name="old-section" value="{$current}">
       <input type="hidden" name="old-name" value="{$docname}">
+      <hr>
+
       <div class="field">
         <p class="control">
           <button type="submit" class="button is-primary full-width">
@@ -64,4 +75,5 @@
       </div>
     </section>
   </form>
+  
 {include file='footer.tpl'}

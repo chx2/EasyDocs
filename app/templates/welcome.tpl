@@ -2,13 +2,16 @@
 {assign var="document" value="true"}
 {include file='header.tpl'}
   {if empty($navigation)}
+
     <section class="abs-center full-width">
       <h1>Welcome to EasyDocs</h1>
       <hr>
       <h2><a href="login">Login</a> to begin writing!</h2>
     </section>
+
   {else}
     {include file='navigation.tpl'}
+
     <div class="container">
       <div class="columns">
         <div class="column is-3">
@@ -24,5 +27,6 @@
         </div>
       </div>
     </div>
+    
   {/if}
 {include file='footer.tpl'}

@@ -1,5 +1,6 @@
 {assign var="subtitle" value="Login"}
 {include file='header.tpl'}
+
   <section class="abs-center full-width">
     <div class="card">
       <div class="card-content centered">
@@ -38,4 +39,5 @@
       </div>
     </div>
   </section>
+  
 {include file='footer.tpl'}

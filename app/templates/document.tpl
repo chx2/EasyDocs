@@ -2,6 +2,7 @@
 {assign var="document" value="true"}
 {include file='header.tpl'}
   {include file='navigation.tpl'}
+
   <div class="container">
     <div class="columns">
       <div class="column is-3">
@@ -16,4 +17,5 @@
       </div>
     </div>
   </div>
+  
 {include file='footer.tpl'}
