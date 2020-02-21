@@ -40,13 +40,13 @@ try {
     $js .= '<script src="' . $externaljs . '"></script>' . "\n";
   }
   foreach($settings['settings']['scripts']['local'] as $localjs) {
-    $js .= '<script src="' . BASE_URL . '/assets/' . $localjs . '"></script>' . "\n";
+    $js .= '<script src="' . BASE_URL . '/assets/js/' . $localjs . '"></script>' . "\n";
   }
   foreach($settings['settings']['styles']['external'] as $externalcss) {
     $css .= '<link rel="stylesheet" href="' . $externalcss . '">' . "\n";
   }
   foreach($settings['settings']['styles']['local'] as $localcss) {
-    $css .= '<link rel="stylesheet" href="' . BASE_URL . '/assets/' . $localcss . '">' . "\n";
+    $css .= '<link rel="stylesheet" href="' . BASE_URL . '/assets/css/' . $localcss . '">' . "\n";
   }
   $template->assign('scripts',      $js);
   $template->assign('styles',       $css);

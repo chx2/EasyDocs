@@ -4,6 +4,6 @@ settings:
     langauge: en
     encoding: utf-8
     users: { admin: '1234' }
-    scripts: { local: [js/app.js, js/bulma-toast.js, js/accordion.js, js/markdown.js], external: ['https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js', 'https://use.fontawesome.com/releases/v5.3.1/js/all.js'] }
-    styles: { local: [css/accordion.css, css/checkbox.css, css/animate.css, css/styles.css, css/tooltip.css, css/markdown.css], external: ['https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css'] }
+    scripts: { local: [app.js, bulma-toast.js, accordion.js, markdown.js, touch.js], external: ['https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js', 'https://use.fontawesome.com/releases/v5.3.1/js/all.js'] }
+    styles: { local: [accordion.css, checkbox.css, animate.css, styles.css, tooltip.css, markdown.css], external: ['https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css'] }
 pages: {  }
