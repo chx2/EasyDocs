@@ -45,9 +45,11 @@ class Tool {
 
     //Add Files to Zip
     foreach ($this->data as $key => $value) {
-      if (isset($files[$key])) {
-        foreach($files[$key] as $file) {
-          $zip->addFile('docs/'. $key . '/' . $file . '.md');
+      //Spaces are converted to _, conver them back
+      $new = str_replace("_", " ", $key);
+      if (isset($files[$new])) {
+        foreach($files[$new] as $file) {
+          $zip->addFile('docs/'. $new . '/' . $file . '.md');
         }
       }
     }

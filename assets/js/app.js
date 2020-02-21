@@ -3,6 +3,12 @@ $(document).ready(function() {
   //Accordions
   var accordions = bulmaAccordion.attach();
 
+  //Make editor bar stick to top for long document edits
+  $(document).scroll(function() {
+    var top = $(this).scrollTop() > 460;
+    (top) ? $('.editor-toolbar').addClass('bar-stick slideInDown') : $('.editor-toolbar').removeClass('bar-stick slideInDown')
+  });
+
   //Delete document
   $(".remove").click(function(e) {
     e.preventDefault();
