@@ -113,8 +113,21 @@ $(document).ready(function() {
           dismissible: true,
           animate: { in: 'fadeIn', out: 'fadeOut' }
         });
-        $.post('order', data);
-        $(this).css('cursor', 'pointer');
+        $.post('order', data, function(data,status) {
+          var data = jQuery.parseJSON(data);
+          var html = '';
+          //Update order in main dashboard panel
+          $.each(data, function(key, item) {
+            html += '<article class="accordion is-primary"><div class="accordion-header toggle"><p class="has-text-centered">' + key + '</p><button class="remove delete" data-section="' + key + '" data-name="no-name"></button></div><div class="accordion-body"><div class="accordion-content"><ul id="documents" class="list sortables sortable-container">'
+            $.each(item, function(pos, value) {
+              html += '<li id="' + key + '-' + value + '" class="list-item sortable-item"><a href="edit?section=' + key + '&docname=' + value + '">' + value + '</a> <a data-section="' + key + '" data-name="' + value + '" class="delete is-pulled-right remove"></a></li>';
+            });
+            html += '</ul></div></div></article>';
+          });
+          $('#documents').html(html);
+          $(this).css('cursor', 'pointer');
+        });
+        bulmaAccordion.attach();
       }
     });
   });

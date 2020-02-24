@@ -32,6 +32,7 @@ class Sorter {
     else {
       $this->list['pages'][$this->key] = $this->sorted[$this->key];
     }
+    echo json_encode($this->list['pages'], true);
   }
 
   //Escape document arraypost

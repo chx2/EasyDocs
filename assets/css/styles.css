@@ -31,6 +31,9 @@ h2 {
 h3 {
   font-size: 1.75rem
 }
+.abs {
+  position: absolute;
+}
 .bar-stick {
   top: 0!important;
   position: fixed!important;

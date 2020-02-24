@@ -127,7 +127,6 @@ $router->post('/order', function() use ($settings,$template,$logged) {
     $sort->sort();
     $yaml = Yaml::dump($sort->list);
     file_put_contents(CONFIG_URI, $yaml);
-    header('Location: dashboard');
   }
   else {
     echo 'You are not logged in';

@@ -23,7 +23,7 @@
         <h2 class="has-text-centered">Current Documents</h2>
         <hr>
         {if !empty($sections)}
-          <section class="accordions">
+          <section id="documents" class="accordions">
             {foreach from=$sections key=key item=item}
               <article class="accordion is-primary">
                 <div class="accordion-header toggle">

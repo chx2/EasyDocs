@@ -36,5 +36,5 @@
           visibility: visible;
         }
       </style>
-      <h1 class="no-js abs-center full-width">{$title} requires Javascript to function, please check your browser settings</h1>
+      <h1 class="no-js abs-center abs full-width">{$title} requires Javascript to function, please check your browser settings</h1>
     </noscript>
