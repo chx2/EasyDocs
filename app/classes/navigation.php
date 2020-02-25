@@ -5,6 +5,8 @@ class Navigation {
 
   public $tree;
   public $navigation;
+  public $previous;
+  public $next;
 
   private $section;
   private $document;
@@ -19,12 +21,16 @@ class Navigation {
     foreach($this->tree as $key => $value) {
       $this->navigation .= '<p class="menu-label">' . $key . '</p>';
       $this->navigation .= '<ul class="menu-list">';
-      foreach($this->tree[$key] as $branch) {
-        if (strtolower($this->section . $this->document) === strtolower($key . $branch)) {
-          $this->navigation .= '<li><a class="is-active" href="'.BASE_URL .'/'. strtolower($key) .'/'. strtolower($branch).'">'.$branch.'</a><li>';
+      $documents = count($this->tree[$key]);
+      for ($i = 0;$i < $documents; $i++) {
+        $branch = $this->tree[$key];
+        if (strtolower($this->section . $this->document) === strtolower($key . $branch[$i])) {
+          $this->previous = isset($branch[$i-1]) ? $branch[$i-1] : null;
+          $this->next = isset($branch[$i+1]) ? $branch[$i+1] : null;
+          $this->navigation .= '<li><a class="is-active" href="'.BASE_URL .'/'. strtolower($key) .'/'. strtolower($branch[$i]).'">'.$branch[$i].'</a><li>';
         }
         else {
-          $this->navigation .= '<li><a href="'.BASE_URL .'/'. strtolower($key) .'/'. strtolower($branch).'">'.$branch.'</a><li>';
+          $this->navigation .= '<li><a href="'.BASE_URL .'/'. strtolower($key) .'/'. strtolower($branch[$i]).'">'.$branch[$i].'</a><li>';
         }
       }
       $this->navigation .= "</ul>";

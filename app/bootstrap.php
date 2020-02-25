@@ -221,6 +221,8 @@ $router->get('/([^/]+)/([^/]+)', function($slug,$name) use ($settings,$template,
 
     if ($document->getContent()) {
       $template->assign('navigation',$menu->navigation);
+      $template->assign('previous', $menu->previous);
+      $template->assign('next', $menu->next);
       $template->assign('docname',$document->docname);
       $template->assign('section',$document->section);
       $template->assign('content',$parsed->text($document->content));
