@@ -14,24 +14,8 @@
         <article class="content">
           {$content}
         </article>
-        {if !empty($previous)}
-          <button class="button is-success is-outlined is-pulled-left">
-            <span class="icon">
-              <i class="fas fa-arrow-left"></i>
-            </span>
-            <span><a href="{$base_url}/{$section}/{$previous}">Previous: {$previous}</a></span>
-          </button>
-        {/if}
-        {if !empty($next)}
-          <button class="button is-success is-outlined is-pulled-right">
-            <span><a href="{$base_url}/{$section}/{$next}">Next up: {$next}</a></span>
-            <span class="icon">
-              <i class="fas fa-arrow-right"></i>
-            </span>
-          </button>
-        {/if}
       </div>
     </div>
   </div>
-
+  
 {include file='footer.tpl'}

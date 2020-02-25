@@ -17,13 +17,6 @@ body {
 a {
   color: #00d1b2
 }
-button a {
-  color: inherit;
-  transition: 0.5s;
-}
-button a:hover {
-  color: inherit;
-}
 h1,h2,h3,h4,h5,h6 {
   font-weight: 600;
   line-height: 1.125;
