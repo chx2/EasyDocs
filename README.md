@@ -3,6 +3,16 @@ EasyDocs allows for you to create & edit user documentation with a built-in dash
 
 No database is required to run EasyDocs. A full-installation process will take less than five minutes and will have you easily spinning up documentation in no time!
 
+## Features
+There are numerous features within EasyDocs that make the creation of user documentation easy:
+
+- Database(less): One of the main features of EasyDocs is there is no need for a database of any sort.
+- Easy Configuration: Much of EasyDocs can be modified from one config file. This file has it's definitions layed out in very
+easy-to-understand terms, meaning someone without programming knowledge would be able to know what they're modifying.
+- ADA Compliancy: Documentation generated for the user is fully-ada compliant by default.
+- MVC-Like architecture: The structure of the EasyDocs source means modification is easy. No sifting through a gargled codebase
+for editing the visuals of a specific template.
+
 ## Prerequisites
 
 - A web server with PHP7+ installed

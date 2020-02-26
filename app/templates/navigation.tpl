@@ -17,7 +17,7 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a href="logout" class="button is-primary">
+            <a href="logout" class="button is-link">
               Logout
             </a>
           </div>
@@ -48,7 +48,7 @@
         </div>
         <div class="navbar-item">
           <div class="buttons">
-            <a href="{$base_url}/logout" class="button is-primary">
+            <a href="{$base_url}/logout" class="button is-link">
               Logout
             </a>
           </div>

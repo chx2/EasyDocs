@@ -28,11 +28,12 @@ class Sorter {
         $sections[$value] = $this->list['pages'][$value];
       }
       $this->list['pages'] = $sections;
+      echo json_encode($this->list['pages'], true);
     }
     else {
       $this->list['pages'][$this->key] = $this->sorted[$this->key];
+      echo 'Document order has been updated!';
     }
-    echo json_encode($this->list['pages'], true);
   }
 
   //Escape document arraypost
