@@ -20,7 +20,7 @@
 
   <form action="edit" method="post">
     <section class="container">
-      <h1 class="has-text-centered">Editing: <a href="{$base_url}/{$section|urlencode}/{$docname|urlencode}" target="_blank">{$docname}</a></h1>
+      <h1 class="has-text-centered">Editing: <a href="{$base_url}/{$section|urlencode}/{$docname|urlencode}?preview=true" target="_blank">{$docname}</a></h1>
       <div class="columns">
 
         <div class="column section">
@@ -75,5 +75,5 @@
       </div>
     </section>
   </form>
-  
+
 {include file='footer.tpl'}

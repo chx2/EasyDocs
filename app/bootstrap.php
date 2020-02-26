@@ -64,7 +64,13 @@ $logged = new chx2\Authentication($settings);
 $router = new \Bramus\Router\Router();
 
 //Welcome page
-$router->get('/', function() use ($template,$settings) {
+$router->get('/', function() use ($template,$settings,$logged) {
+  if ($settings['settings']['private']) {
+    if (!$logged->isLoggedUser()) {
+      $logged->NotLoggedIn();
+      exit(0);
+    }
+  }
   if (empty($settings['pages'])) {
     $template->display('welcome.tpl');
   }
@@ -117,7 +123,12 @@ $router->get('/login', function() use ($settings,$template,$logged) {
 
 //Try to login
 $router->post('/login', function() use ($settings,$template,$logged) {
-  $logged->login();
+  if ($logged->isUser()) {
+    $logged->loginUser();
+  }
+  else {
+    $logged->login();
+  }
 });
 
 //Reorder section
@@ -209,27 +220,33 @@ $router->post('/tool', function() use ($settings,$template,$logged) {
 
 //View Documents
 $router->get('/([^/]+)/([^/]+)', function($slug,$name) use ($settings,$template,$logged) {
-  if (isset($name)) {
-    $document = new chx2\DocMaker($settings);
-    $document->section = preg_replace('/[\s\+]/', ' ', htmlspecialchars($slug));
-    $document->docname = preg_replace('/[\s\+]/', ' ', htmlspecialchars($name));
-
-    $menu = new chx2\Navigation($settings['pages'],$document->section,$document->docname);
-    $menu->branch();
-
-    $parsed = new Parsedown();
-
-    if ($document->getContent()) {
-      $template->assign('navigation',$menu->navigation);
-      $template->assign('docname',$document->docname);
-      $template->assign('section',$document->section);
-      $template->assign('content',$parsed->text($document->content));
-      $template->display('document.tpl');
+  if ($settings['settings']['private']) {
+    if (!$logged->isPreview()) {
+      if (!$logged->isLoggedUser()) {
+        $logged->NotLoggedIn();
+        exit(0);
+      }
     }
-    else {
-      header('HTTP/1.1 404 Not Found');
-      $template->display('404.tpl');
-    }
+  }
+  $document = new chx2\DocMaker($settings);
+  $document->section = preg_replace('/[\s\+]/', ' ', htmlspecialchars($slug));
+  $document->docname = preg_replace('/[\s\+]/', ' ', htmlspecialchars($name));
+
+  $menu = new chx2\Navigation($settings['pages'],$document->section,$document->docname);
+  $menu->branch();
+
+  $parsed = new Parsedown();
+
+  if ($document->getContent()) {
+    $template->assign('navigation',$menu->navigation);
+    $template->assign('docname',$document->docname);
+    $template->assign('section',$document->section);
+    $template->assign('content',$parsed->text($document->content));
+    $template->display('document.tpl');
+  }
+  else {
+    header('HTTP/1.1 404 Not Found');
+    $template->display('404.tpl');
   }
 });
 

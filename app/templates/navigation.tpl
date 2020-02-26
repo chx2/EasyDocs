@@ -12,6 +12,19 @@
   </div>
 
   <div id="navbar" class="navbar-menu">
+
+    {if isset($smarty.session.logged_user)}
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a href="logout" class="button is-primary">
+              Logout
+            </a>
+          </div>
+        </div>
+      </div>
+    {/if}
+
     {if !isset($document)}
 
       <div class="navbar-end">
@@ -24,7 +37,7 @@
               Clear cache
             </a>
             {if !empty($sections)}
-              <a href="tool?action=scan" class="navbar-item has-tooltip-left" data-tooltip="This will scan all current documents to help fix broken listings">
+              <a href="tool?action=scan" class="navbar-item has-tooltip-left" data-tooltip="This will scan all current documents to help fix broken listings. WARNING: Running this command will result in document & section ordering to alphabetical">
                 Rebuild document list
               </a>
               <a class="navbar-item has-tooltip-left modal-toggle" data-tooltip="Click to select documents for export">
@@ -35,7 +48,7 @@
         </div>
         <div class="navbar-item">
           <div class="buttons">
-            <a href="logout" class="button is-primary">
+            <a href="{$base_url}/logout" class="button is-primary">
               Logout
             </a>
           </div>
