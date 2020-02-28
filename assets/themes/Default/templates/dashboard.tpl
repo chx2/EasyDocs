@@ -44,12 +44,12 @@
               </article>
             {/foreach}
           </section>
-          <hr>
         {else}
-        <h3 class="has-text-centered">No documents found</h3>
+          <h3 class="has-text-centered">No documents found</h3>
         {/if}
         {if count($sections) >= 2}
-          <button class="button section-order is-primary full-width">Change Section Order</button>
+          <hr>
+          <button class="button modal-order section-order is-primary full-width">Change Section Order</button>
         {/if}
       </div>
     </div>
@@ -75,7 +75,6 @@
             </div>
           </div>
           {/if}
-          <hr>
           <div class="field">
             <p class="control">
               <button class="button is-primary full-width" {if empty($sections)}disabled{/if}>
@@ -97,7 +96,6 @@
               <input class="input" type="text" placeholder="Enter new section name..." name="section">
             </p>
           </div>
-          <hr>
           <div class="field">
             <p class="control">
               <button class="button is-primary full-width">

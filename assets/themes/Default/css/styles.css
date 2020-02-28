@@ -1,4 +1,4 @@
-body {
+body, .modal-card-body {
   overflow-x: hidden
 }
 ::-webkit-scrollbar {
@@ -50,7 +50,8 @@ h3 {
   color: hsl(217, 71%, 53%)
 }
 .modal-card {
-  top: 35%
+  top: 35%;
+  overflow-y: auto;
 }
 .input:active, .input:focus, .is-active.input, .is-active.textarea, .is-focused.input, .is-focused.textarea, .select select.is-active, .select select.is-focused, .select select:active, .select select:focus, .textarea:active, .textarea:focus {
   border-color: #00d1b2;

@@ -66,17 +66,20 @@ $(document).ready(function() {
   //Modal
   $('.modal-toggle').click(function(e) {
     e.preventDefault();
-    $(document).find('.modal').first().fadeIn()
+    $('.modal').fadeIn()
   });
-  $('.modal-background').click(function(e) {
+  $('.modal-order').click(function(e) {
     e.preventDefault();
-    $(document).find('.modal').first().fadeOut()
-    $(document).find('.modal').first().next().fadeOut()
+    $('.modal-sections').fadeIn()
   });
-  $('.close').click(function(e) {
+  $('.modal-export').click(function(e) {
     e.preventDefault();
-    $(document).find('.modal').first().fadeOut()
-    $(document).find('.modal').first().next().fadeOut()
+    $('.modal-exports').fadeIn()
+  });
+  $('.close, .modal-background').click(function(e) {
+    e.preventDefault();
+    if(e.target != this) return;
+    $('.modal, .modal-bg, .modal-exports').fadeOut()
   });
 
   //Page notification

@@ -15,8 +15,8 @@ for editing the visuals of a specific template.
 
 ## Prerequisites
 
-- A web server with PHP7+ installed
--  File reading/writing permissions(Required for the docs/ folder included in EasyDocs)
+- A web server with PHP 7.2.4+ installed
+- File reading/writing permissions(Required for the docs/ folder included in EasyDocs)
 - [Composer](https://getcomposer.org/download/)
 
 ## Installation
@@ -41,7 +41,8 @@ It is possible to modify the layout and/or functionality of EasyDocs if you wish
 
 Inside the config.yaml file, there are two values within that hold arrays linking to any stylesheets or scripts you wish to use in your project. Besides that, There are other various places in which you can modify EasyDocs:
 
-- bootstrap.php -> Serves as a place where global variables are initialized in addition to serving as the sort of 'router' for the application.
+- bootstrap.php -> Serves as a place where global variables are initialized.
+- router.php    -> Holds application routes
 - assets/       -> Folder that you should store custom css/js or local scripts
 - classes/      -> Folder containing logical units that manage files,sessions,data etc...
 - templates/    -> Folder containing the HTML templates used by EasyDocs

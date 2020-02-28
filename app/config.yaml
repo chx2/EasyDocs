@@ -3,9 +3,9 @@ settings:
     description: 'Welcome to EasyDocs! Use this tool to generate the documentation you need to your hearts content!'
     langauge: en
     encoding: utf-8
+    theme: Default
     admin: { admin: '1234' }
     users: { user: '1234' }
     private: false
-    scripts: { local: [app.js, bulma-toast.js, accordion.js, markdown.js, touch.js], external: ['https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js', 'https://use.fontawesome.com/releases/v5.3.1/js/all.js'] }
-    styles: { local: [accordion.css, checkbox.css, animate.css, styles.css, tooltip.css, markdown.css], external: ['https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css'] }
-pages: {  }
+pages:
+    Default: [Example]
