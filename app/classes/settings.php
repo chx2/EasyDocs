@@ -20,6 +20,15 @@ class Settings {
     if (isset($this->data['theme'])) {
       $this->updateTheme();
     }
+    if (isset($this->data['username']) && isset($this->data['password'])) {
+      $this->addUser();
+    }
+    if (isset($this->data['private'])) {
+      $this->updatePrivate(true);
+    }
+    else {
+      $this->updatePrivate(false);
+    }
 
     $yaml = Yaml::dump($this->list);
     file_put_contents(CONFIG_URI, $yaml);
@@ -78,14 +87,26 @@ class Settings {
   }
 
   public function addUser() {
-
+    $type = $this->data['type'];
+    if (!isset($this->list['settings'][$type][$this->data['username']])) {
+      $this->list['settings'][$type][$this->data['username']] = $this->data['password'];
+      $_SESSION['success'] = 'User has been added!';
+    }
+    else {
+      $_SESSION['error'] = 'This user already exists.';
+    }
   }
 
   public function deleteUser() {
 
   }
 
-  public function updateKey() {
-
+  public function updatePrivate($switch) {
+    if ($switch) {
+      $this->list['settings']['private'] = true;
+    }
+    else {
+      $this->list['settings']['private'] = false;
+    }
   }
 }

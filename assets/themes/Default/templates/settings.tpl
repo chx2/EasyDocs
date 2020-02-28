@@ -74,9 +74,9 @@
         <label class="label" for="user">Select a user type</label>
         <div class="field">
           <div id="user" class="select full-width">
-            <select id="user" class="full-width" name="user">
+            <select id="user" class="full-width" name="type">
               <option value="admin">Admin</option>
-              <option value="user">User</option>
+              <option value="users">User</option>
             </select>
           </div>
         </div>

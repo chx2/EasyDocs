@@ -9,7 +9,7 @@
 require 'vendor/autoload.php';
 use Symfony\Component\Yaml\Yaml;
 
-//Check application requirements;
+//Check application requirements, stop here if not met
 $requirements = new chx2\Requirements();
 $requirements->check();
 
