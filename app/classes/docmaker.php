@@ -1,5 +1,6 @@
 <?php
 namespace chx2;
+use Symfony\Component\Yaml\Yaml;
 /*
   Easy Docs by Chris H.
 
@@ -64,6 +65,8 @@ class DocMaker {
       $this->list['pages'][$this->section][] = $this->docname;
       $_SESSION['success'] = 'You have successfully added a new section!';
     }
+    $yaml = Yaml::dump($this->list);
+    file_put_contents(CONFIG_URI, $yaml);
     header('Location: dashboard');
   }
 
@@ -94,6 +97,8 @@ class DocMaker {
         unset($this->list['pages'][$this->section][array_search($this->docname, $this->list['pages'][$this->section])]);
       }
     }
+    $yaml = Yaml::dump($this->list);
+    file_put_contents(CONFIG_URI, $yaml);
   }
 
   //Update document
@@ -109,6 +114,9 @@ class DocMaker {
       file_put_contents(DOC_URI . $this->section . '/' . $this->docname . '.md', $this->content);
       $_SESSION['success'] = $this->docname . ' has been updated!';
     }
+    $yaml = Yaml::dump($this->list);
+    file_put_contents(CONFIG_URI, $yaml);
+    header('Location: dashboard');
   }
 
   //Handling just document
@@ -131,6 +139,8 @@ class DocMaker {
       $this->list['pages'][$this->section][] = $this->docname;
       $_SESSION['success'] = 'You have successfully added a new document!';
     }
+    $yaml = Yaml::dump($this->list);
+    file_put_contents(CONFIG_URI, $yaml);
     header('Location: dashboard');
   }
 
@@ -142,6 +152,8 @@ class DocMaker {
   //Finishing editing
   public function editContent() {
     $_SESSION['success'] = 'You have successfully edited a document!';
+    $yaml = Yaml::dump($this->list);
+    file_put_contents(CONFIG_URI, $yaml);
     header('Location: dashboard');
   }
 

@@ -1,5 +1,6 @@
 <?php
 namespace chx2;
+use Symfony\Component\Yaml\Yaml;
 /*
   Easy Docs by Chris H.
 
@@ -21,6 +22,8 @@ class Tool {
 
   public function run() {
     call_user_func(array($this,$this->action));
+    $yaml = Yaml::dump($this->list);
+    file_put_contents(CONFIG_URI, $yaml);
   }
 
   //Clear cache

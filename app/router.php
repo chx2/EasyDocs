@@ -1,7 +1,6 @@
 <?php
 //Route to requested page
 $router = new \Bramus\Router\Router();
-use Symfony\Component\Yaml\Yaml;
 
 //Welcome page
 $router->get('/', function() use ($template,$settings,$logged) {
@@ -42,9 +41,6 @@ $router->post('/edit', function() use ($settings,$template,$logged) {
   if ($logged->isLoggedIn()) {
     $document = new chx2\DocMaker($settings);
     $document->putContent();
-    $yaml = Yaml::dump($document->list);
-    file_put_contents(CONFIG_URI, $yaml);
-    header('Location: dashboard');
   }
   else {
     $logged->NotLoggedIn();
@@ -76,8 +72,6 @@ $router->post('/order', function() use ($settings,$template,$logged) {
   if ($logged->isLoggedIn()) {
     $sort = new chx2\Sorter($settings);
     $sort->sort();
-    $yaml = Yaml::dump($sort->list);
-    file_put_contents(CONFIG_URI, $yaml);
   }
   else {
     echo 'You are not logged in';
@@ -89,8 +83,6 @@ $router->post('/process', function() use ($settings,$template,$logged) {
   if ($logged->isLoggedIn()) {
     $document = new chx2\DocMaker($settings);
     $document->deleteContent();
-    $yaml = Yaml::dump($document->list);
-    file_put_contents(CONFIG_URI, $yaml);
   }
   else {
     echo 'You are not logged in';
@@ -124,8 +116,6 @@ $router->get('/document', function() use ($settings,$template,$logged) {
     elseif ($document->isEdit()) {
       $document->editContent();
     }
-    $yaml = Yaml::dump($document->list);
-    file_put_contents(CONFIG_URI, $yaml);
   }
   else {
     $logged->NotLoggedIn();
@@ -143,7 +133,7 @@ $router->get('/settings', function() use ($settings,$template,$logged) {
 });
 $router->post('/settings', function() use ($settings,$template,$logged) {
   if ($logged->isLoggedIn()) {
-    $update = new chx2\Settings();
+    $update = new chx2\Settings($settings);
   }
   else {
     $logged->NotLoggedIn();
@@ -155,8 +145,6 @@ $router->get('/tool', function() use ($settings,$template,$logged) {
   if ($logged->isLoggedIn()) {
     $tool = new chx2\Tool($settings);
     $tool->run();
-    $yaml = Yaml::dump($tool->list);
-    file_put_contents(CONFIG_URI, $yaml);
   }
   else {
     $logged->NotLoggedIn();
@@ -168,8 +156,6 @@ $router->post('/tool', function() use ($settings,$template,$logged) {
   if ($logged->isLoggedIn()) {
     $tool = new chx2\Tool($settings);
     $tool->run();
-    $yaml = Yaml::dump($tool->list);
-    file_put_contents(CONFIG_URI, $yaml);
   }
   else {
     $logged->NotLoggedIn();

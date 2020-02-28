@@ -1,6 +1,6 @@
 <?php
 namespace chx2;
-
+use Symfony\Component\Yaml\Yaml;
 /*
   Easy Docs by Chris H.
 
@@ -34,6 +34,8 @@ class Sorter {
       $this->list['pages'][$this->key] = $this->sorted[$this->key];
       echo 'Document order has been updated!';
     }
+    $yaml = Yaml::dump($this->list);
+    file_put_contents(CONFIG_URI, $yaml);
   }
 
   //Escape document arraypost

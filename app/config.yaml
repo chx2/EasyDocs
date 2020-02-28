@@ -7,5 +7,4 @@ settings:
     admin: { admin: '1234' }
     users: { user: '1234' }
     private: false
-pages:
-    Default: [Example]
+pages: {  }
