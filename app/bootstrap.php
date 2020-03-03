@@ -64,6 +64,7 @@ try {
   $template->assign('error',        (isset($_SESSION['error']) ? $_SESSION['error'] : ''));
   $template->assign('success',      (isset($_SESSION['success']) ? $_SESSION['success'] : ''));
   $template->assign('themes',       $themelist->getThemeTitles());
+  $template->assign('private',      $settings['settings']['private']);
   $template->assign('scripts',      $js);
   $template->assign('styles',       $css);
 

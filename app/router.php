@@ -47,6 +47,39 @@ $router->post('/edit', function() use ($settings,$template,$logged) {
   }
 });
 
+//Display dashboard
+$router->get('/dashboard', function() use ($settings,$template,$logged) {
+  if ($logged->isLoggedIn()) {
+    $template->display('dashboard.tpl');
+  }
+  else {
+    $logged->NotLoggedIn();
+  }
+});
+
+//CRU with documents
+$router->get('/document', function() use ($settings,$template,$logged) {
+  if ($logged->isLoggedIn()) {
+    $document = new chx2\DocMaker($settings);
+    if ($document->isSection()) {
+      $document->addSection();
+    }
+    elseif ($document->isContent()) {
+      $document->addContent();
+    }
+    elseif ($document->isEdit()) {
+      $document->editContent();
+    }
+  }
+  else {
+    $logged->NotLoggedIn();
+  }
+});
+
+$router->get('/logout', function() use ($settings,$template,$logged) {
+  $logged->logout();
+});
+
 //Login
 $router->get('/login', function() use ($settings,$template,$logged) {
   if ($logged->isLoggedIn()) {
@@ -86,39 +119,6 @@ $router->post('/process', function() use ($settings,$template,$logged) {
   }
   else {
     echo 'You are not logged in';
-  }
-});
-
-//Display dashboard
-$router->get('/dashboard', function() use ($settings,$template,$logged) {
-  if ($logged->isLoggedIn()) {
-    $template->display('dashboard.tpl');
-  }
-  else {
-    $logged->NotLoggedIn();
-  }
-});
-
-$router->get('/logout', function() use ($settings,$template,$logged) {
-  $logged->logout();
-});
-
-//CRU with documents
-$router->get('/document', function() use ($settings,$template,$logged) {
-  if ($logged->isLoggedIn()) {
-    $document = new chx2\DocMaker($settings);
-    if ($document->isSection()) {
-      $document->addSection();
-    }
-    elseif ($document->isContent()) {
-      $document->addContent();
-    }
-    elseif ($document->isEdit()) {
-      $document->editContent();
-    }
-  }
-  else {
-    $logged->NotLoggedIn();
   }
 });
 

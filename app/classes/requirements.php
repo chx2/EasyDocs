@@ -9,7 +9,7 @@ class Requirements {
   public function __construct() {
     $this->required = array(
       'Safe Mode'                   => (ini_get('safe_mode')) ? false : true,
-      'PHP 7.2.5+'                  => version_compare(PHP_VERSION, '7.2.5', '>='),
+      'PHP 7.1.3+'                  => version_compare(PHP_VERSION, '7.1.3', '>='),
       'Document direcory writable'  => is_writable(dirname('docs')),
       'ZIP Extension Installed'     => (extension_loaded('zip'))
     );

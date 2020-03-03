@@ -14,7 +14,7 @@ class Settings {
     $this->data = array_map('htmlspecialchars', $_POST);
     $this->list = $settings;
 
-    if ($_FILES['newtheme']['name']) {
+    if (isset($_FILES['newtheme']['name'])) {
       $this->addTheme();
     }
     if (isset($this->data['theme'])) {
@@ -104,9 +104,11 @@ class Settings {
   public function updatePrivate($switch) {
     if ($switch) {
       $this->list['settings']['private'] = true;
+      $_SESSION['success'] = 'Private mode has been enabled!';
     }
     else {
       $this->list['settings']['private'] = false;
+      $_SESSION['success'] = 'Private mode has been disabled!';
     }
   }
 }
