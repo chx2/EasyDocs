@@ -24,7 +24,7 @@
           <hr>
           <div class="field">
             <div class="select full-width">
-              <select id="theme" class="full-width" name="theme">
+              <select id="theme" class="full-width" name="theme" required>
                 {foreach from=$themes item=theme}
                   <option value="{$theme}">{$theme}</option>
                 {/foreach}
@@ -32,11 +32,18 @@
             </div>
           </div>
           <div class="field">
-            <div class="file is-centered is-primary has-name">
-              <input class="file-input full-width" type="file" name="newtheme" accept=".zip,.rar,.7zip">
-              <span class="file-cta full-width is-boxed button">
-                <i class="fas fa-upload"></i> Upload new theme
-              </span>
+            <div class="file is-primary full-width">
+              <label class="file-label full-width">
+                <input class="file-input" type="file" name="newtheme" accept=".zip,.rar,.7zip">
+                <span class="file-cta full-width justified">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Upload new theme
+                  </span>
+                </span>
+              </label>
             </div>
           </div>
           <hr>
@@ -52,7 +59,7 @@
           <label class="label">Create a new user <a class="has-tooltip-right modal-users" data-tooltip="Check 'list users' under tools for a current listing of registered users">?</a> </label>
           <div class="field">
             <p class="control has-icons-left has-icons-right">
-              <input class="input" type="text" placeholder="Username" name="username">
+              <input class="input" type="text" placeholder="Username" name="username" required>
               <span class="icon is-small is-left">
                 <i class="fas fa-user"></i>
               </span>
@@ -60,7 +67,7 @@
           </div>
           <div class="field">
             <p class="control has-icons-left">
-              <input class="input" type="password" placeholder="Password" name="password">
+              <input class="input" type="password" placeholder="Password" name="password" required>
               <span class="icon is-small is-left">
                 <i class="fas fa-lock"></i>
               </span>

@@ -55,7 +55,12 @@ class Settings {
   	}
 
     //Not a zip file
-    $continue = strtolower($name[1]) == 'zip' ? true : false;
+    if (isset($name[1])) {
+      $continue = strtolower($name[1]) == 'zip' ? true : false;
+    }
+    else {
+      $continue = false;
+    }
     if(!$continue) {
       $_SESSION['error'] = 'The file you are trying to upload is not a .zip file. Please try again.';
       header('Location: settings');
