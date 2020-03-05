@@ -38,14 +38,14 @@
             <a href="tool?action=cache" class="navbar-item has-tooltip-left" data-tooltip="This will clear page cache. Helpful if you want to see changes asap">
               Clear cache
             </a>
-            <a class="navbar-item has-tooltip-left modal-users" data-tooltip="List all existing users">
+            <a class="navbar-item has-tooltip-left modal-toggle" data-modal="modal-users" data-tooltip="List all existing users">
               List users
             </a>
             {if !empty($sections)}
               <a href="tool?action=scan" class="navbar-item has-tooltip-left" data-tooltip="This will scan all current documents to help fix broken listings. WARNING: Running this command will result in document & section ordering to alphabetical">
                 Rebuild document list
               </a>
-              <a class="navbar-item has-tooltip-left modal-export" data-tooltip="Click to select documents for export">
+              <a class="navbar-item has-tooltip-left modal-toggle" data-modal="modal-exports" data-tooltip="Click to select documents for export">
                 Export Documents
               </a>
             {/if}

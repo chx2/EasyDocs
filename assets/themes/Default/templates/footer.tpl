@@ -53,76 +53,41 @@
       </div>
     </div>
 
-    <div class="modal modal-settings">
-      <div class="modal-background">
-        <div class="modal-card">
-          <div class="modal-card-head">
-            <h2 class="modal-card-title">Settings</h2>
+    <div class="modal modal-users">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <form class="export-form" action="tool?action=export" method="post">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Edit Users</p>
             <button class="delete close" aria-label="close"></button>
-          </div>
-          <form action="settings" method="post" enctype="multipart/form-data">
-            <section class="modal-card-body">
-              <div class="field">
-                <label class="label" for="theme">Select a theme</label>
-                <div class="select full-width">
-                  <select id="theme" class="full-width" name="theme">
-                    {foreach from=$themes item=theme}
-                      <option value="{$theme}">{$theme}</option>
-                    {/foreach}
-                  </select>
-                </div>
-              </div>
-              <hr>
-              <div class="colums is-multiline">
-                <div class="column">
-                  <label class="label">Create a new user <a class="has-tooltip-right modal-users" data-tooltip="Check 'list users' under tools for a current listing of registered users">?</a> </label>
-                  <div class="field">
-                    <p class="control has-icons-left has-icons-right">
-                      <input class="input" type="text" placeholder="Username" name="username" required>
-                      <span class="icon is-small is-left">
-                        <i class="fas fa-user"></i>
-                      </span>
-                    </p>
+          </header>
+          <section class="modal-card-body">
+            <ul class="list">
+              {foreach from $users item=value key=key}
+                <li class="list-item columns">
+                  <div class="field column is-2">
+                    <p class="has-text-centered">{$key}</p>
                   </div>
-                  <div class="field">
-                    <p class="control has-icons-left">
-                      <input class="input" type="password" placeholder="Password" name="password" required>
-                      <span class="icon is-small is-left">
-                        <i class="fas fa-lock"></i>
-                      </span>
-                    </p>
-                  </div>
-                </div>
-                <div class="column">
-                  <label class="label" for="user">Select a user type</label>
-                  <div class="field">
-                    <div id="user" class="select full-width">
-                      <select id="user" class="full-width" name="user">
-                        <option value="admin">Admin</option>
-                        <option value="user">User</option>
+                  <div class="field column is-5">
+                    <div class="select full-width">
+                      <select class="full-width update-user" name="user-{$key}" data-edit="user-{$key}">
+                        <option value="username">Update Username</option>
+                        <option value="password">Update Password</option>
+                        <option value="delete">Delete User</option>
                       </select>
                     </div>
                   </div>
-                </div>
-              </div>
-              <hr>
-              <ul>
-                <li>
-                  <p class="is-pulled-left label">
-                    Make documentation private <a class="has-tooltip-right modal-users" data-tooltip="Only registered users can view documentation">?</a>
-                  </p>
-                  <div class="ckbx-style-13 is-pulled-right">
-                    <input type="checkbox" id="private" name="private">
-                    <label for="private"></label>
+                  <div class="field column is-5">
+                    <input id="user-{$key}" class="input" name="user-value" disabled>
                   </div>
                 </li>
-              </ul>
-            </section>
-            <footer class="modal-card-foot">
-              <button type="submit" class="button is-primary full-width">Submit</button>
-            </footer>
-          </form>
-        </div>
+              {/foreach}
+            </ul>
+          </section>
+          <footer class="modal-card-foot">
+            <button type="submit" class="button is-primary full-width">Update</button>
+          </footer>
+        </form>
       </div>
     </div>
 

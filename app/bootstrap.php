@@ -63,6 +63,7 @@ try {
   $template->assign('sections',     (isset($settings['pages']) ? $settings['pages']: null));
   $template->assign('error',        (isset($_SESSION['error']) ? $_SESSION['error'] : ''));
   $template->assign('success',      (isset($_SESSION['success']) ? $_SESSION['success'] : ''));
+  $template->assign('users',        $settings['settings']['users']);
   $template->assign('themes',       $themelist->getThemeTitles());
   $template->assign('private',      $settings['settings']['private']);
   $template->assign('scripts',      $js);

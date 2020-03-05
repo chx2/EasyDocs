@@ -50,6 +50,7 @@
         {if count($sections) >= 2}
           <hr>
           <button class="button modal-order section-order is-primary full-width">Change Section Order</button>
+          <button class="button modal-toggle section-order is-primary full-width" data-modal="modal-sections">Change Section Order</button>
         {/if}
       </div>
     </div>
