@@ -1,7 +1,7 @@
 {
     "name": "chx2/easydocs",
     "description": "An easy way to generate user documentation",
-    "version": "0.11.0",
+    "version": "0.12.0",
     "keywords": ["documentation", "static generator"],
     "license": "MIT",
     "authors": [

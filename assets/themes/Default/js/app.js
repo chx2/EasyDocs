@@ -57,6 +57,17 @@ $(document).ready(function() {
     });
   }
 
+  //User action
+  $('#action').change(function() {
+    if ($(this).val() === 'delete' || $(this).val() === 'role') {
+      $('#user-action').fadeOut();
+    }
+    else {
+      $('#user-action').fadeIn();
+      $('#user-action').prop('disabled', false).focus();
+    }
+  });
+
   //Mobile Menu
   $(".navbar-burger").click(function() {
     $(".navbar-burger").toggleClass("is-active");

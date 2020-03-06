@@ -30,10 +30,12 @@ class Authentication {
     if (isset($this->users[$this->valid_user]) && $this->valid_pass === $this->users[$this->valid_user]['password']) {
       if ($this->users[$this->valid_user]['role'] === 'admin') {
         $_SESSION['logged_in'] = true;
+        $_SESSION['user'] = $this->valid_user;
         $this->loggedIn();
       }
       else {
         $_SESSION['logged_user'] = true;
+        $_SESSION['user'] = $this->valid_user;
         $this->loggedUser();
       }
     }

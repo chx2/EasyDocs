@@ -87,7 +87,34 @@
           <button type="submit" class="button is-primary full-width">Create</button>
           <hr>
         </form>
-        <button type="submit" class="button is-primary full-width">Edit Existing User</button>
+        <form action="settings" method="post" enctype="multipart/form-data">
+          <label class="label" for="users">Select a user</label>
+          <div class="field">
+            <div class="select full-width">
+              <select id="users" class="full-width" name="username">
+                {foreach $users as $user}
+                  <option value="{$user@key}">{$user@key}</option>
+                {/foreach}
+              </select>
+            </div>
+          </div>
+          <label class="label" for="action">Select an action</label>
+          <div class="field">
+            <div class="select full-width">
+              <select id="action" class="full-width" name="action" required>
+                <option value="" selected>Select an action</option>
+                <option value="delete">Delete User</option>
+                <option value="password">Update Password</option>
+                <option value="username">Update Username</option>
+                <option value="role">Promote/Demote User</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <input id="user-action" class="input" type="text" name="value" disabled>
+          </div>
+          <button type="submit" class="button is-primary full-width">Update</button>
+        </form>
       </div>
     </div>
     <div class="column">
