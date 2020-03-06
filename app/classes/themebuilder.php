@@ -1,4 +1,10 @@
 <?php
+/*
+  Easy Docs by Chris H.
+
+  ThemeBuilder Class
+  Used to pass references to all installed themes
+*/
 namespace chx2;
 use Symfony\Component\Yaml\Yaml;
 

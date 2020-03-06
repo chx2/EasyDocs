@@ -1,12 +1,13 @@
 <?php
-namespace chx2;
-use Symfony\Component\Yaml\Yaml;
 /*
   Easy Docs by Chris H.
 
   Tool Class
   Misc. tool package for helping out a little bit
 */
+namespace chx2;
+use Symfony\Component\Yaml\Yaml;
+
 class Tool {
 
   protected $action;

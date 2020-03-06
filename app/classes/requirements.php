@@ -1,4 +1,10 @@
 <?php
+/*
+  Easy Docs by Chris H.
+
+  Requirements Class
+  Used to check for web server requirements
+*/
 namespace chx2;
 
 class Requirements {

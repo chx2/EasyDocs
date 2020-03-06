@@ -1,4 +1,15 @@
 <?php
+/*
+  Easy Docs by Chris H.
+
+  EasyDocs allows for you to create & edit user documentation with a built-in dashboard centered around the organization of documentation under various user defined topics.
+
+  This file is the application routing file. request handling can be setup through this file.
+
+  If you want to create custom urls or modify behavior of current ones, consider creating a
+  custom theme. You can place a router.php file in the home directory of your custom theme
+  to be utilized instead of this default one.
+*/
 //Route to requested page
 $router = new \Bramus\Router\Router();
 

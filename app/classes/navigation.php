@@ -1,4 +1,10 @@
 <?php
+/*
+  Easy Docs by Chris H.
+
+  Navigation Class
+  Used to generate a navigation menu
+*/
 namespace chx2;
 
 class Navigation {

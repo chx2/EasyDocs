@@ -1,11 +1,12 @@
 <?php
-namespace chx2;
 /*
   Easy Docs by Chris H.
 
   Authentication Class
   Used to handle logging
 */
+namespace chx2;
+
 class Authentication {
 
   protected $admin;

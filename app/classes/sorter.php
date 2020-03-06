@@ -1,12 +1,13 @@
 <?php
-namespace chx2;
-use Symfony\Component\Yaml\Yaml;
 /*
   Easy Docs by Chris H.
 
   Sorter Class
   Used to handle resorting/bundling of section items
 */
+namespace chx2;
+use Symfony\Component\Yaml\Yaml;
+
 class Sorter {
 
   public $list;

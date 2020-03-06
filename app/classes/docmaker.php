@@ -1,12 +1,13 @@
 <?php
-namespace chx2;
-use Symfony\Component\Yaml\Yaml;
 /*
   Easy Docs by Chris H.
 
   DocMaker Class
   Used to do CRUD stuff with markdown documents
 */
+namespace chx2;
+use Symfony\Component\Yaml\Yaml;
+
 class DocMaker {
 
   public $list;

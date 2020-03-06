@@ -1,4 +1,10 @@
 <?php
+/*
+  Easy Docs by Chris H.
+
+  User Class
+  Class for handling interactions with users
+*/
 namespace chx2;
 use Symfony\Component\Yaml\Yaml;
 

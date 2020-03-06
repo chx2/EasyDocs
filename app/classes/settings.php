@@ -1,4 +1,10 @@
 <?php
+/*
+  Easy Docs by Chris H.
+
+  Settings Class
+  Used to handle application settings
+*/
 namespace chx2;
 use Symfony\Component\Yaml\Yaml;
 
