@@ -65,7 +65,7 @@ class DocMaker {
       $this->list['pages'][$this->section][] = $this->docname;
       $_SESSION['success'] = 'You have successfully added a new section!';
     }
-    $yaml = Yaml::dump($this->list);
+    $yaml = Yaml::dump($this->list, 2);
     file_put_contents(CONFIG_URI, $yaml);
     header('Location: dashboard');
   }
@@ -97,7 +97,7 @@ class DocMaker {
         unset($this->list['pages'][$this->section][array_search($this->docname, $this->list['pages'][$this->section])]);
       }
     }
-    $yaml = Yaml::dump($this->list);
+    $yaml = Yaml::dump($this->list, 2);
     file_put_contents(CONFIG_URI, $yaml);
   }
 
@@ -114,7 +114,7 @@ class DocMaker {
       file_put_contents(DOC_URI . $this->section . '/' . $this->docname . '.md', $this->content);
       $_SESSION['success'] = $this->docname . ' has been updated!';
     }
-    $yaml = Yaml::dump($this->list);
+    $yaml = Yaml::dump($this->list, 2);
     file_put_contents(CONFIG_URI, $yaml);
     header('Location: dashboard');
   }
@@ -139,7 +139,7 @@ class DocMaker {
       $this->list['pages'][$this->section][] = $this->docname;
       $_SESSION['success'] = 'You have successfully added a new document!';
     }
-    $yaml = Yaml::dump($this->list);
+    $yaml = Yaml::dump($this->list, 2);
     file_put_contents(CONFIG_URI, $yaml);
     header('Location: dashboard');
   }
@@ -152,7 +152,7 @@ class DocMaker {
   //Finishing editing
   public function editContent() {
     $_SESSION['success'] = 'You have successfully edited a document!';
-    $yaml = Yaml::dump($this->list);
+    $yaml = Yaml::dump($this->list, 2);
     file_put_contents(CONFIG_URI, $yaml);
     header('Location: dashboard');
   }

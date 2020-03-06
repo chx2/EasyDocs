@@ -52,9 +52,9 @@
       </form>
     </div>
     <div class="column">
-      <form action="settings" method="post" enctype="multipart/form-data">
-        <div class="card section">
-          <h2 class="has-text-centered">Users</h2>
+      <div class="card section">
+        <h2 class="has-text-centered">Users</h2>
+        <form action="settings" method="post" enctype="multipart/form-data">
           <hr>
           <label class="label">Create a new user <a class="has-tooltip-right modal-users" data-tooltip="Check 'list users' under tools for a current listing of registered users">?</a> </label>
           <div class="field">
@@ -78,14 +78,17 @@
             <div id="user" class="select full-width">
               <select id="user" class="full-width" name="type">
                 <option value="admin">Admin</option>
-                <option value="users">User</option>
+                <option value="user">User</option>
               </select>
             </div>
           </div>
           <hr>
+          <input type="hidden" name="action" value="add">
           <button type="submit" class="button is-primary full-width">Create</button>
-        </div>
-      </form>
+          <hr>
+        </form>
+        <button type="submit" class="button is-primary full-width">Edit Existing User</button>
+      </div>
     </div>
     <div class="column">
       <form action="settings" method="post" enctype="multipart/form-data">

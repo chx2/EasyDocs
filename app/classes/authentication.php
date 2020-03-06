@@ -15,40 +15,31 @@ class Authentication {
 
   public function __construct($input) {
 
-    $this->admin = $input['settings']['admin'];
-    $this->user = $input['settings']['users'];
+    $this->users = $input['settings']['users'];
 
-  }
-
-  public function login() {
-    $data = array_map('htmlspecialchars',$_POST);
-    $this->valid_user = (isset($data['username']) ? $data['username'] : '');
-    $this->valid_pass = (isset($data['password']) ? $data['password'] : '');
-    if (isset($this->admin[$this->valid_user]) && $this->valid_pass === $this->admin[$this->valid_user]) {
-      $_SESSION['logged_in'] = true;
-      header('Location: dashboard');
-    }
-    else {
-      $_SESSION['error'] = 'You have provided incorrect login credentials';
-      header('Location: login');
-    }
   }
 
   public function isLoggedIn() {
     return isset($_SESSION['logged_in']);
   }
 
-  public function loginUser() {
+  public function login() {
     $data = array_map('htmlspecialchars',$_POST);
     $this->valid_user = (isset($data['username']) ? $data['username'] : '');
     $this->valid_pass = (isset($data['password']) ? $data['password'] : '');
-    if (isset($this->user[$this->valid_user]) && $this->valid_pass === $this->user[$this->valid_user]) {
-      $_SESSION['logged_user'] = true;
-      header('Location: '. BASE_URL);
+    if (isset($this->users[$this->valid_user]) && $this->valid_pass === $this->users[$this->valid_user]['password']) {
+      if ($this->users[$this->valid_user]['role'] === 'admin') {
+        $_SESSION['logged_in'] = true;
+        $this->loggedIn();
+      }
+      else {
+        $_SESSION['logged_user'] = true;
+        $this->loggedUser();
+      }
     }
     else {
       $_SESSION['error'] = 'You have provided incorrect login credentials';
-      header('Location: login');
+      header('Location: ' . BASE_URL . '/login');
     }
   }
 
@@ -68,11 +59,15 @@ class Authentication {
     return isset($_SESSION['logged_user']);
   }
 
-  public function LoggedIn() {
-    header('Location: dashboard');
+  public function loggedUser() {
+    header('Location: ' . BASE_URL);
   }
 
-  public function NotLoggedIn() {
+  public function loggedIn() {
+    header('Location: ' . BASE_URL . '/dashboard');
+  }
+
+  public function notLoggedIn() {
     $_SESSION['error'] = 'You are not logged in';
     header('Location: ' . BASE_URL . '/login');
   }

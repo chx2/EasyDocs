@@ -14,23 +14,27 @@ class Settings {
     $this->data = array_map('htmlspecialchars', $_POST);
     $this->list = $settings;
 
+    //Theme upload, private mode, update theme
     if (isset($_FILES['newtheme']['name'])) {
       $this->addTheme();
     }
-    if (isset($this->data['theme'])) {
+    else if (isset($this->data['theme'])) {
       $this->updateTheme();
     }
-    if (isset($this->data['username']) && isset($this->data['password'])) {
-      $this->addUser();
-    }
-    if (isset($this->data['private'])) {
-      $this->updatePrivate(true);
+    else if (isset($this->data['action'])) {
+      $user = new User($this->data,$this->list);
+      $this->list = $user->userList();
     }
     else {
-      $this->updatePrivate(false);
+      if (isset($this->data['private'])) {
+      $this->updatePrivate(true);
+      }
+      else {
+        $this->updatePrivate(false);
+      }
     }
 
-    $yaml = Yaml::dump($this->list);
+    $yaml = Yaml::dump($this->list, 2);
     file_put_contents(CONFIG_URI, $yaml);
     header('Location: settings');
 
@@ -89,21 +93,6 @@ class Settings {
 
   public function updateTheme() {
     $this->list['settings']['theme'] = $this->data['theme'];
-  }
-
-  public function addUser() {
-    $type = $this->data['type'];
-    if (!isset($this->list['settings'][$type][$this->data['username']])) {
-      $this->list['settings'][$type][$this->data['username']] = $this->data['password'];
-      $_SESSION['success'] = 'User has been added!';
-    }
-    else {
-      $_SESSION['error'] = 'This user already exists.';
-    }
-  }
-
-  public function deleteUser() {
-
   }
 
   public function updatePrivate($switch) {

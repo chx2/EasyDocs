@@ -34,7 +34,7 @@ class Sorter {
       $this->list['pages'][$this->key] = $this->sorted[$this->key];
       echo 'Document order has been updated!';
     }
-    $yaml = Yaml::dump($this->list);
+    $yaml = Yaml::dump($this->list, 2);
     file_put_contents(CONFIG_URI, $yaml);
   }
 

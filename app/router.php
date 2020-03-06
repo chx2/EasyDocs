@@ -6,7 +6,7 @@ $router = new \Bramus\Router\Router();
 $router->get('/', function() use ($template,$settings,$logged) {
   if ($settings['settings']['private']) {
     if (!$logged->isLoggedUser()) {
-      $logged->NotLoggedIn();
+      $logged->notLoggedIn();
       exit(0);
     }
   }
@@ -32,7 +32,7 @@ $router->get('/edit', function() use ($settings,$template,$logged) {
     $template->display('editor.tpl');
   }
   else {
-    $logged->NotLoggedIn();
+    $logged->notLoggedIn();
   }
 });
 
@@ -43,7 +43,7 @@ $router->post('/edit', function() use ($settings,$template,$logged) {
     $document->putContent();
   }
   else {
-    $logged->NotLoggedIn();
+    $logged->notLoggedIn();
   }
 });
 
@@ -53,7 +53,7 @@ $router->get('/dashboard', function() use ($settings,$template,$logged) {
     $template->display('dashboard.tpl');
   }
   else {
-    $logged->NotLoggedIn();
+    $logged->notLoggedIn();
   }
 });
 
@@ -72,7 +72,7 @@ $router->get('/document', function() use ($settings,$template,$logged) {
     }
   }
   else {
-    $logged->NotLoggedIn();
+    $logged->notLoggedIn();
   }
 });
 
@@ -92,12 +92,7 @@ $router->get('/login', function() use ($settings,$template,$logged) {
 
 //Try to login
 $router->post('/login', function() use ($settings,$template,$logged) {
-  if ($logged->isUser()) {
-    $logged->loginUser();
-  }
-  else {
-    $logged->login();
-  }
+  $logged->login();
 });
 
 //Reorder section
@@ -128,7 +123,7 @@ $router->get('/settings', function() use ($settings,$template,$logged) {
     $template->display('settings.tpl');
   }
   else {
-    $logged->NotLoggedIn();
+    $logged->notLoggedIn();
   }
 });
 $router->post('/settings', function() use ($settings,$template,$logged) {
@@ -136,7 +131,7 @@ $router->post('/settings', function() use ($settings,$template,$logged) {
     $update = new chx2\Settings($settings);
   }
   else {
-    $logged->NotLoggedIn();
+    $logged->notLoggedIn();
   }
 });
 
@@ -147,7 +142,7 @@ $router->get('/tool', function() use ($settings,$template,$logged) {
     $tool->run();
   }
   else {
-    $logged->NotLoggedIn();
+    $logged->notLoggedIn();
   }
 });
 
@@ -158,7 +153,7 @@ $router->post('/tool', function() use ($settings,$template,$logged) {
     $tool->run();
   }
   else {
-    $logged->NotLoggedIn();
+    $logged->notLoggedIn();
   }
 });
 
@@ -167,7 +162,7 @@ $router->get('/([^/]+)/([^/]+)', function($slug,$name) use ($settings,$template,
   if ($settings['settings']['private']) {
     if (!$logged->isPreview()) {
       if (!$logged->isLoggedUser()) {
-        $logged->NotLoggedIn();
+        $logged->notLoggedIn();
         exit(0);
       }
     }

@@ -22,7 +22,7 @@ class Tool {
 
   public function run() {
     call_user_func(array($this,$this->action));
-    $yaml = Yaml::dump($this->list);
+    $yaml = Yaml::dump($this->list, 2);
     file_put_contents(CONFIG_URI, $yaml);
   }
 

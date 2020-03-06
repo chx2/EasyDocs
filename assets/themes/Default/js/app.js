@@ -88,11 +88,6 @@ $(document).ready(function() {
     $(document).find('.modal').first().next().fadeIn()
   });
 
-  //User edit
-  $('.update-user').on('change', function() {
-    $('#' + $(this).attr('data-edit')).prop('disabled', false).focus();
-  });
-
   //Sorting
   $(".sortables").click(function() {
     $(this).css('cursor', 'grab');

@@ -53,44 +53,6 @@
       </div>
     </div>
 
-    <div class="modal modal-users">
-      <div class="modal-background"></div>
-      <div class="modal-card">
-        <form class="export-form" action="tool?action=export" method="post">
-          <header class="modal-card-head">
-            <p class="modal-card-title">Edit Users</p>
-            <button class="delete close" aria-label="close"></button>
-          </header>
-          <section class="modal-card-body">
-            <ul class="list">
-              {foreach from $users item=value key=key}
-                <li class="list-item columns">
-                  <div class="field column is-2">
-                    <p class="has-text-centered">{$key}</p>
-                  </div>
-                  <div class="field column is-5">
-                    <div class="select full-width">
-                      <select class="full-width update-user" name="user-{$key}" data-edit="user-{$key}">
-                        <option value="username">Update Username</option>
-                        <option value="password">Update Password</option>
-                        <option value="delete">Delete User</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="field column is-5">
-                    <input id="user-{$key}" class="input" name="user-value" disabled>
-                  </div>
-                </li>
-              {/foreach}
-            </ul>
-          </section>
-          <footer class="modal-card-foot">
-            <button type="submit" class="button is-primary full-width">Update</button>
-          </footer>
-        </form>
-      </div>
-    </div>
-
   {/if}
 
     <footer class="footer">

@@ -4,7 +4,6 @@ settings:
     langauge: en
     encoding: utf-8
     theme: Default
-    admin: { admin: '1234' }
-    users: { user: '1234' }
+    users: { admin: { password: '1234', role: admin } }
     private: false
 pages: {  }
