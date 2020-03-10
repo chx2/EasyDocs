@@ -6,4 +6,5 @@ settings:
     theme: Default
     users: { admin: { password: '1234', role: admin } }
     private: false
-pages: {  }
+pages:
+    Documentation: [authentication, docmaker, navigation, requirements, settings, sorter, themebuilder, tool]

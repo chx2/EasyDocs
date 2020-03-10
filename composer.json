@@ -1,9 +1,14 @@
 {
     "name": "chx2/easydocs",
     "description": "An easy way to generate user documentation",
-    "version": "0.12.1",
+    "version": "0.13.0",
     "keywords": ["documentation", "static generator"],
     "license": "MIT",
+    "type": "project",
+    "support": {
+  		"issues": "https://github.com/chx2/easydocs/issues",
+  		"source": "https://github.com/chx2/easydocs"
+  	},
     "authors": [
         {
             "name": "Chris H.",
