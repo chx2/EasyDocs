@@ -10,12 +10,12 @@ There are numerous features within EasyDocs that make the creation of user docum
 - Easy Configuration: Much of EasyDocs can be modified from one config file. This file has it's definitions layed out in very
 easy-to-understand terms, meaning someone without programming knowledge would be able to know what they're modifying.
 - ADA Compliancy: Documentation generated for the user is fully-ada compliant by default.
-- MVC-Like architecture: The structure of the EasyDocs source means modification is easy. No sifting through a gargled codebase
+- MVC-Like architecture: The structure of the EasyDocs source means modification is easy. No sifting through a gargled code-base
 for editing the visuals of a specific template.
 
 ## Prerequisites
 
-- A web server with PHP 7.2.4+ installed
+- A web server with PHP 7.1.3+ installed
 - File reading/writing permissions(Required for the docs/ folder included in EasyDocs)
 - [Composer](https://getcomposer.org/download/)
 
@@ -30,22 +30,18 @@ for editing the visuals of a specific template.
 
 > admin: '1234'
 
-Say you want a new one with the name 'superuser' and a password of '1029', you would add this line to the users block:
-
-> superuser: '1029'
+Once you have logged in for the first time, you can create and add new users as well as change passwords.
 
 3. Enter the URL of the webserver to login. Once you have created your first section inside the ACP (Accessible by appending /login to url), you can begin to write your documentation!
 
 ## Modifications
 It is possible to modify the layout and/or functionality of EasyDocs if you wish.
 
-Inside the config.yaml file, there are two values within that hold arrays linking to any stylesheets or scripts you wish to use in your project. Besides that, There are other various places in which you can modify EasyDocs:
+Under the settings in the dashboard, you can upload your own custom theme! A default one is bundled with the application. Documentation on creating custom themes is coming soon! As of now, you can customize:
 
-- bootstrap.php -> Serves as a place where global variables are initialized.
-- router.php    -> Holds application routes
-- assets/       -> Folder that you should store custom css/js or local scripts
-- classes/      -> Folder containing logical units that manage files,sessions,data etc...
-- templates/    -> Folder containing the HTML templates used by EasyDocs
+1. Styling and scripts
+2. Templates
+3. Router File(Optional)
 
 ## Manual Documentation
 While the intended purpose of EasyDocs is to provide an editor to help you create documentation, it is entirely possible to create documentation manually if you choose to do so. Keep in mind you should follow the these steps to ensure your additions do not cause any issues within the application:
@@ -82,3 +78,8 @@ There are several plugins that are utilized within EasyDocs for simplified usage
 Feel free to leave a issue if something is not working with EasyDocs by default
 
 Note, I will not respond to reports if the error occurred after custom modification of EasyDocs. The only exception I will allow is if something within EasyDocs is not behaving as seemingly intended, therefore causing errors.
+
+Leave any reports on https://github.com/chx2/EasyDocs/issues
+
+### Contributing
+Head over here https://github.com/chx2/EasyDocs/pulls
