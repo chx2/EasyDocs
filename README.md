@@ -24,7 +24,7 @@ for editing the visuals of a specific template.
 **With Composer**
 1. Run the following command to download the composer package:
 
-> composer create-project chx2/easydocs -s dev
+> composer create-project chx2/easydocs
 
 2. Edit the config.yaml file under the app/ directory to update your username & password plus add any additional users. A default one is provided but is recommended that you change it. You can edit current users & add new ones under the YAML block called users:
 
