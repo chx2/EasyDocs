@@ -6,4 +6,4 @@ settings:
     theme: Default
     users: { admin: { password: '1234', role: admin } }
     private: false
-pages: { }
+pages: {  }
